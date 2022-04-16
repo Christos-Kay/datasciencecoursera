@@ -1,0 +1,31 @@
+## Put comments here that give an overall description of what your
+## functions do
+
+## Write a short comment describing this function
+
+##All this function does is set the Matrix so the cacheSolve
+##function can call it.
+
+makeCacheMatrix <- function(x = matrix()) {
+    m <- NULL
+    set <- function(y) {
+      x <<- y
+      m <<- NULL
+    }
+    get <- function() x
+    list(set = set, get = get)
+}
+
+
+## Write a short comment describing this function
+
+##This will return the inverse of the matrix.
+
+cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
+  m <- x$get()
+  if(!is.null(m)) {
+    message("getting cached data")
+    return(solve(m))
+  }
+}
